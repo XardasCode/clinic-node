@@ -1,0 +1,48 @@
+<%- include ('head.ejs'); -%>
+
+<h1>Create Appointment</h1>
+<hr class="mb-5 mt-4"/>
+
+<card>
+    <div class="card-body">
+        <form>
+            <input type="hidden" value="<%= doctor.id %>" id="doctorId"/>
+            <input type="hidden" value="<%= user.id %>" id="patientId"/>
+            <div class="mb-3">
+                <label for="date" class="form-label fw-bold">Date</label>
+                <input type="date"
+                       class="form-control"
+                       id="date" aria-describedby="dateHelp" required/>
+            </div>
+            <div class="mb-3">
+                <label for="doctor" class="form-label fw-bold">Doctor</label>
+                <input type="text"
+                       value="<%= doctor.name %>"
+                       class="form-control disabled"
+                       disabled
+                       id="doctor" aria-describedby="doctorHelp" required/>
+            </div>
+            <div class="mb-3">
+                <label for="specialization" class="form-label fw-bold">Specialization</label>
+                <input value="<%= specialization.name %>" type="text"
+                       class="form-control disabled"
+                       disabled
+                       id="specialization" aria-describedby="specializationHelp" required/>
+            </div>
+
+            <div class="mb-3">
+                <label for="problem" class="form-label fw-bold">Problem</label>
+                <textarea
+                        class="form-control"
+                        id="problem" aria-describedby="problemHelp" required
+                        placeholder="Describe your problem here..."></textarea>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" class="btn btn-primary mx-auto">Create</button>
+            </div>
+        </form>
+    </div>
+</card>
+<script src="/js/create-visit.js"></script>
+
+<%- include ('footer.ejs'); -%>

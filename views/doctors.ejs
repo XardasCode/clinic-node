@@ -1,0 +1,25 @@
+<%- include ('head.ejs'); -%>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Doctor</th>
+        <th scope="col">Specialization</th>
+        <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% doctors.forEach(function(doctor) { %>
+        <tr>
+            <td><%= doctor.name %></td>
+            <td><%= specializations.find(specialization => specialization.id === doctor.specialization_id).name %></td>
+            <td>
+                <a href="/api/v1/visits/new/<%= doctor.id %>" class="btn btn-primary">Make visit</a>
+            </td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
+
+
+<%- include ('footer.ejs'); -%>
